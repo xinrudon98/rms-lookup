@@ -61,104 +61,265 @@ def home():
 <html>
 <head>
 <meta charset="utf-8" />
-<title>RMS Wildfire Risk Lookup</title>
+<title>RMS WILDFIRE RISK LOOKUP</title>
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 40px;
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+background:#F2F2F2;
+margin:0;
+padding:0;
+color:#404040;
 }
 
-.container {
-    max-width: 1000px;
-    margin: auto;
+/* HERO */
+.hero{
+background:#404040;
+color:white;
+padding:70px 60px;
 }
 
-h1 {
-    margin-bottom: 5px;
+.hero h1{
+margin:0;
+font-weight:800;
+letter-spacing:2px;
+font-size:26px;
 }
 
-.subtitle {
-    color: #666;
-    margin-bottom: 30px;
+.hero-divider{
+height:1px;
+background:rgba(255,255,255,0.15);
+margin-top:25px;
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-    margin-bottom: 20px;
+/* WRAPPER */
+.container{
+max-width:1200px;
+margin:-40px auto 80px auto;
+padding:0 40px;
 }
 
-.input-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
+/* CARD */
+.card{
+background:white;
+padding:35px;
+border-radius:18px;
+margin-bottom:40px;
+box-shadow:0 12px 35px rgba(0,0,0,0.05);
+border:1px solid #EDEDED;
+transition:all 0.2s ease;
 }
 
-input {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+.card:hover{
+box-shadow:0 18px 45px rgba(0,0,0,0.06);
 }
 
-button {
-    padding: 12px;
-    font-size: 15px;
-    background-color: #1f4ed8;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
+/* SECTION */
+.section-title{
+display:flex;
+align-items:center;
+gap:10px;
+font-size:13px;
+letter-spacing:1px;
+text-transform:uppercase;
+color:#595959;
+margin-bottom:25px;
 }
 
-button:hover {
-    background-color: #1e40af;
+.section-title svg{
+width:18px;
+height:18px;
+stroke:#8497B0;
 }
 
-.section-title {
-    font-weight: 600;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
+/* INPUT */
+.input-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:16px;
 }
 
-.metric {
-    margin: 5px 0;
+input{
+padding:12px;
+border-radius:8px;
+border:1px solid #DDD;
+background:#FAFAFA;
+font-size:14px;
+transition:all 0.2s ease;
 }
 
-.loading {
-    color: #666;
-    font-style: italic;
+input:focus{
+outline:none;
+border-color:#8497B0;
+box-shadow:0 0 0 3px rgba(132,151,176,0.15);
+background:white;
+}
+
+button{
+margin-top:25px;
+padding:14px;
+border-radius:8px;
+border:none;
+background:#8497B0;
+color:white;
+font-size:14px;
+cursor:pointer;
+letter-spacing:0.5px;
+transition:all 0.2s ease;
+}
+
+button:hover{
+background:#6D829B;
+transform:translateY(-1px);
+}
+
+/* METRICS */
+.metric{
+margin:6px 0;
+font-size:14px;
+color:#595959;
+}
+
+.metric-strong{
+font-size:18px;
+font-weight:600;
+color:#404040;
+margin-top:6px;
+}
+
+/* RISK */
+.risk-wrapper{
+background:#EEF1F5;
+padding:30px;
+border-radius:14px;
+margin-top:20px;
+}
+
+.risk-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:25px;
+}
+
+.risk-card{
+background:white;
+padding:22px;
+border-radius:12px;
+border-left:4px solid #8497B0;
+transition:all 0.2s ease;
+}
+
+.risk-card:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.risk-title{
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:12px;
+color:#595959;
+}
+
+.risk-badge{
+padding:6px 14px;
+border-radius:999px;
+font-weight:600;
+color:white;
+font-size:14px;
+letter-spacing:0.5px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* LOSS */
+.loss-section{
+background:#F7F7F7;
+padding:30px;
+border-radius:14px;
+margin-top:20px;
+}
+
+.loss-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.loss-card{
+background:white;
+padding:22px;
+border-radius:12px;
+border-top:4px solid #EEE1B3;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+.placeholder{
+color:#999;
+font-style:italic;
+}
+
+/* LOADING */
+.loading{
+text-align:center;
+padding:40px;
+color:#595959;
+}
+
+.spinner{
+width:28px;
+height:28px;
+border:3px solid #DDD;
+border-top:3px solid #8497B0;
+border-radius:50%;
+animation:spin 0.8s linear infinite;
+margin:0 auto 15px auto;
+}
+
+@keyframes spin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+a{
+color:#8497B0;
+text-decoration:none;
+}
+a:hover{
+text-decoration:underline;
 }
 </style>
 </head>
 
 <body>
 
+<div class="hero">
+<h1>RMS WILDFIRE RISK LOOKUP</h1>
+<div class="hero-divider"></div>
+</div>
+
 <div class="container">
 
-<h1>RMS Wildfire Risk Lookup</h1>
-<div class="subtitle">Internal underwriting tool</div>
-
 <div class="card">
-    <div class="section-title">Property Information</div>
+<div class="section-title">
+<i data-lucide="home"></i>
+Property Information
+</div>
 
-    <div class="input-grid">
-        <input id="address" placeholder="Street, City, State ZIP" />
-        <input id="year_built" type="number" placeholder="Year Built" />
-        <input id="num_stories" type="number" placeholder="Number of Stories" />
-        <input id="sqft" type="number" placeholder="Square Footage" />
-        <input id="building_value" type="number" placeholder="Building Value" />
-        <input id="contents_value" type="number" placeholder="Contents Value" />
-    </div>
+<div class="input-grid">
+<input id="address" placeholder="Street, City, State ZIP"/>
+<input id="year_built" type="number" placeholder="Year Built"/>
+<input id="num_stories" type="number" placeholder="Number of Stories"/>
+<input id="sqft" type="number" placeholder="Square Footage"/>
+<input id="building_value" type="number" placeholder="Building Value"/>
+<input id="contents_value" type="number" placeholder="Contents Value"/>
+</div>
 
-    <button onclick="lookup()">Run Risk Analysis</button>
+<button onclick="lookup()">Run Risk Analysis</button>
 </div>
 
 <div id="results"></div>
@@ -166,88 +327,197 @@ button:hover {
 </div>
 
 <script>
-async function lookup() {
+lucide.createIcons();
 
-    const address = document.getElementById("address").value.trim();
-    const resultsDiv = document.getElementById("results");
+function getDamageRatio(score){
+const map={
+1:[0,0.5],
+2:[0.5,1],
+3:[1,5],
+4:[5,10],
+5:[10,15],
+6:[15,20],
+7:[20,30],
+8:[30,40],
+9:[40,50],
+10:[50,80]
+};
+return map[score]||[0,0];
+}
 
-    if (!address) {
-        resultsDiv.innerHTML = "<div class='card'>Address is required.</div>";
-        return;
-    }
+function riskColor(score){
+const hue=Math.max(0,120-(score*10));
+return `hsl(${hue},50%,40%)`;
+}
 
-    resultsDiv.innerHTML = "<div class='card loading'>Running analysis...</div>";
+function formatPercent(v,d=4){ if(!v&&v!==0)return "-"; return (Number(v)*100).toFixed(d)+"%";}
+function formatCurrency(v){ if(!v&&v!==0)return "-"; return new Intl.NumberFormat("en-US",{minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(v));}
+function formatDecimal(v,d=4){ if(!v&&v!==0)return "-"; return Number(v).toFixed(d);}
 
-    try {
-        const response = await fetch("/lookup", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                address: address,
-                year_built: parseInt(document.getElementById("year_built").value) || 0,
-                num_stories: parseInt(document.getElementById("num_stories").value) || 0,
-                sqft: parseInt(document.getElementById("sqft").value) || 0,
-                building_value: parseFloat(document.getElementById("building_value").value) || 0,
-                contents_value: parseFloat(document.getElementById("contents_value").value) || 0
-            })
-        });
+async function lookup(){
 
-        const data = await response.json();
+const address=document.getElementById("address").value.trim();
+const resultsDiv=document.getElementById("results");
 
-        if (!response.ok) {
-            resultsDiv.innerHTML = "<div class='card'>Error: " + JSON.stringify(data) + "</div>";
-            return;
-        }
+if(!address){
+resultsDiv.innerHTML="<div class='card'>Address required.</div>";
+return;
+}
 
-        function formatDecimal(value, digits=4) {
-            if (value === null || value === undefined) return "-";
-            return Number(value).toFixed(digits);
-        }
+resultsDiv.innerHTML=`
+<div class='card loading'>
+<div class='spinner'></div>
+Running analysis...
+</div>
+`;
 
-        function formatPercent(value, digits=4) {
-            if (value === null || value === undefined) return "-";
-            return (Number(value) * 100).toFixed(digits) + "%";
-        }
+try{
+const response=await fetch("/lookup",{method:"POST",headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+address:address,
+year_built:parseInt(document.getElementById("year_built").value)||0,
+num_stories:parseInt(document.getElementById("num_stories").value)||0,
+sqft:parseInt(document.getElementById("sqft").value)||0,
+building_value:parseFloat(document.getElementById("building_value").value)||0,
+contents_value:parseFloat(document.getElementById("contents_value").value)||0
+})
+});
 
-        function formatCurrency(value) {
-            if (value === null || value === undefined) return "-";
-            return new Intl.NumberFormat("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            }).format(Number(value));
-        }
+const data=await response.json();
+if(!response.ok){
+resultsDiv.innerHTML=`
+<div class='card'>
+<div class='section-title'>Input Format Error</div>
+<div class='metric'>Please enter address in the following format:</div>
+<div class='metric-strong'>Street, City, State ZIP</div>
+<div class='metric'>Example: 1387 Schuyler Road, Beverly Hills, CA 90210</div>
+</div>
+`;
+return;
+}
 
-        resultsDiv.innerHTML = `
-        <div class="card">
-            <div class="section-title">Location</div>
-            <div class="metric">Address: ${data.location.address}</div>
-            <div class="metric">City: ${data.location.city}</div>
-            <div class="metric">County: ${data.location.county}</div>
-            <div class="metric">State: ${data.location.state}</div>
-            <div class="metric">ZIP: ${data.location.postal_code}</div>
-            <div class="metric">Latitude: ${formatDecimal(data.location.latitude)}</div>
-            <div class="metric">Longitude: ${formatDecimal(data.location.longitude)}</div>
-        </div>
+const buildingValue=parseFloat(document.getElementById("building_value").value)||0;
+const contentsValue=parseFloat(document.getElementById("contents_value").value)||0;
 
-        <div class="card">
-            <div class="section-title">Wildfire Risk</div>
-            <div class="metric">Overall Score: ${data.wildfire_risk.overall_score}</div>
-            <div class="metric">100 Year: ${data.wildfire_risk.score_100yr}</div>
-            <div class="metric">250 Year: ${data.wildfire_risk.score_250yr}</div>
-            <div class="metric">500 Year: ${data.wildfire_risk.score_500yr}</div>
-        </div>
+const overall=data.wildfire_risk.overall_score;
+const mapsLink=`https://www.google.com/maps?q=${data.location.latitude},${data.location.longitude}`;
 
-        <div class="card">
-            <div class="section-title">Loss Metrics</div>
-            <div class="metric">Building ALR: ${formatPercent(data.loss_metrics.building_annual_loss_rate)}</div>
-            <div class="metric">Contents ALR: ${formatPercent(data.loss_metrics.contents_annual_loss_rate)}</div>
-            <div class="metric">Ground Up Loss: ${formatCurrency(data.loss_metrics.ground_up_loss)}</div>
-        </div>
-        `;
+const riskYears=[
+{label:"100 Year",score:data.wildfire_risk.score_100yr},
+{label:"250 Year",score:data.wildfire_risk.score_250yr},
+{label:"500 Year",score:data.wildfire_risk.score_500yr}
+];
 
-    } catch (err) {
-        resultsDiv.innerHTML = "<div class='card'>Request failed: " + err + "</div>";
-    }
+let riskHTML="";
+riskYears.forEach(r=>{
+const ratio=getDamageRatio(r.score);
+const upper=ratio[1]/100;
+
+let expectedLossDisplay="";
+if(buildingValue>0){
+expectedLossDisplay=formatCurrency(buildingValue*upper);
+}else{
+expectedLossDisplay="<span class='placeholder'>Input building value</span>";
+}
+
+riskHTML+=`
+<div class="risk-card">
+<div class="risk-title">${r.label}</div>
+<div class="metric">Risk Score: ${r.score}</div>
+<div class="metric">Estimated Damage Ratio: ${ratio[0]}% – ${ratio[1]}%</div>
+<div class="metric">Expected Loss</div>
+<div class="metric-strong">${expectedLossDisplay}</div>
+</div>
+`;
+});
+
+let annualBuildingLossDisplay="";
+let annualContentsLossDisplay="";
+
+if(buildingValue>0){
+annualBuildingLossDisplay=formatCurrency(data.loss_metrics.building_annual_loss_rate*buildingValue);
+}else{
+annualBuildingLossDisplay="<span class='placeholder'>Input building value</span>";
+}
+
+if(contentsValue>0){
+annualContentsLossDisplay=formatCurrency(data.loss_metrics.contents_annual_loss_rate*contentsValue);
+}else{
+annualContentsLossDisplay="<span class='placeholder'>Input contents value</span>";
+}
+
+resultsDiv.innerHTML=`
+
+<div class="card">
+<div class="section-title">
+<i data-lucide="map-pin"></i>
+Location
+</div>
+<div class="metric">Address: ${data.location.address}</div>
+<div class="metric">City: ${data.location.city}</div>
+<div class="metric">County: ${data.location.county}</div>
+<div class="metric">State: ${data.location.state}</div>
+<div class="metric">ZIP: ${data.location.postal_code}</div>
+<div class="metric">Latitude: ${formatDecimal(data.location.latitude)}</div>
+<div class="metric">Longitude: ${formatDecimal(data.location.longitude)}</div>
+<div class="metric"><a href="${mapsLink}" target="_blank">View on Google Maps</a></div>
+</div>
+
+<div class="card">
+<div class="section-title">
+<i data-lucide="flame"></i>
+Wildfire Risk
+</div>
+<div class="metric">
+Overall Score:
+<span class="risk-badge" style="background:${riskColor(overall)}">${overall}</span>
+</div>
+<div class="risk-wrapper">
+<div class="risk-grid">
+${riskHTML}
+</div>
+</div>
+</div>
+
+<div class="card">
+<div class="section-title">
+<i data-lucide="trending-up"></i>
+Annualized Loss
+</div>
+
+<div class="loss-section">
+<div class="loss-grid">
+
+<div class="loss-card">
+<div class="metric">Building Annualized Loss Rate</div>
+<div class="metric">${formatPercent(data.loss_metrics.building_annual_loss_rate)}</div>
+<div class="metric">Estimated Annual Building Loss</div>
+<div class="metric">${annualBuildingLossDisplay}</div>
+</div>
+
+<div class="loss-card">
+<div class="metric">Contents Annualized Loss Rate</div>
+<div class="metric">${formatPercent(data.loss_metrics.contents_annual_loss_rate)}</div>
+<div class="metric">Estimated Annual Contents Loss</div>
+<div class="metric">${annualContentsLossDisplay}</div>
+</div>
+
+</div>
+
+<div style="margin-top:30px;">
+<div class="metric">Ground Up Loss</div>
+<div class="metric-strong">${formatCurrency(data.loss_metrics.ground_up_loss)}</div>
+</div>
+
+</div>
+</div>
+`;
+
+lucide.createIcons();
+
+}catch(err){
+resultsDiv.innerHTML="<div class='card'>Request failed.</div>";
+}
 }
 </script>
 
